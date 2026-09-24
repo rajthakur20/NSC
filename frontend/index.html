@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Protection | Network Security & Cryptography</title>
+    <link rel="stylesheet" href="style.css?v=20260925">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <!-- Background Glow Elements -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-grid"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="brand-container">
+                <div class="brand-logo">
+                    <span class="shield-icon">🛡️</span>
+                </div>
+                <div class="brand-text">
+                    <h1>Secure File Protection</h1>
+                    <p class="subtitle">Encrypt. Verify. Protect.</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-btn active" data-tab="dashboard">
+                    <span class="nav-icon">📊</span> Dashboard
+                </button>
+                <button class="nav-btn" data-tab="encrypt">
+                    <span class="nav-icon">🔐</span> Encrypt
+                </button>
+                <button class="nav-btn" data-tab="decrypt">
+                    <span class="nav-icon">🔓</span> Decrypt
+                </button>
+                <button class="nav-btn" data-tab="verify">
+                    <span class="nav-icon">🛡️</span> Verify Integrity
+                </button>
+                <button class="nav-btn" data-tab="how-it-works">
+                    <span class="nav-icon">💡</span> How It Works
+                </button>
+                <button class="nav-btn" data-tab="about">
+                    <span class="nav-icon">ℹ️</span> About
+                </button>
+            </nav>
+        </header>
+
+        <!-- Notification Toast -->
+        <div id="toast" class="toast hidden"></div>
+
+        <!-- Main Content Views -->
+        <main class="content-area">
+
+            <!-- TAB 1: DASHBOARD -->
+            <section id="tab-dashboard" class="tab-view active">
+                <div class="hero-banner">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span> Network Security & Cryptography Engine
+                    </div>
+                    <h2>Zero-Knowledge File Security & Cryptographic Integrity</h2>
+                    <p>
+                        High-assurance authenticated symmetric encryption and cryptographic hashing. 
+                        No keys stored, no passwords saved, and zero permanent server storage.
+                    </p>
+                    <div class="crypto-specs-row">
+                        <div class="spec-pill"><span class="spec-label">Cipher</span> <strong>AES-256-GCM</strong></div>
+                        <div class="spec-pill"><span class="spec-label">Key Derivation</span> <strong>PBKDF2-HMAC-SHA256</strong></div>
+                        <div class="spec-pill"><span class="spec-label">Integrity Hash</span> <strong>SHA-256 (FIPS 180-4)</strong></div>
+                        <div class="spec-pill"><span class="spec-label">Iterations</span> <strong>100,000 Rounds</strong></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Card 1: Encrypt -->
+                    <div class="action-card" onclick="switchTab('encrypt')">
+                        <div class="card-icon-wrap cyan">
+                            <span class="card-icon">🔐</span>
+                        </div>
+                        <h3>Encrypt File</h3>
+                        <p>Protect your file using AES-256-GCM encryption with salted PBKDF2 key derivation and tamper-evident packaging.</p>
+                        <div class="card-footer">
+                            <button class="btn btn-primary">Encrypt File &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Decrypt -->
+                    <div class="action-card" onclick="switchTab('decrypt')">
+                        <div class="card-icon-wrap sapphire">
+                            <span class="card-icon">🔓</span>
+                        </div>
+                        <h3>Decrypt File</h3>
+                        <p>Recover your original file using your password with automatic cryptographic authentication and tamper detection.</p>
+                        <div class="card-footer">
+                            <button class="btn btn-secondary">Decrypt File &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Verify Integrity -->
+                    <div class="action-card" onclick="switchTab('verify')">
+                        <div class="card-icon-wrap emerald">
+                            <span class="card-icon">🛡️</span>
+                        </div>
+                        <h3>Verify Integrity</h3>
+                        <p>Check whether a file has been modified using SHA-256 cryptographic digest matching and constant-time comparison.</p>
+                        <div class="card-footer">
+                            <button class="btn btn-outline">Verify File &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Architecture Overview -->
+                <div class="card-section mt-8">
+                    <div class="section-title-wrap">
+                        <h4>Security Principles Implemented</h4>
+                        <span class="badge-tag">NSC Standard</span>
+                    </div>
+                    <div class="principles-grid">
+                        <div class="principle-item">
+                            <div class="principle-icon">🔒</div>
+                            <h5>Authenticated Encryption</h5>
+                            <p>Galois/Counter Mode (GCM) simultaneously guarantees confidentiality and authenticity (AEAD).</p>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">🎲</div>
+                            <h5>Cryptographic Salt & Nonce</h5>
+                            <p>Fresh 128-bit salt and 96-bit nonce generated per operation via CSPRNG.</p>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">🚫</div>
+                            <h5>Zero Password Persistence</h5>
+                            <p>Passwords and derived keys exist exclusively in volatile memory during active encryption.</p>
+                        </div>
+                        <div class="principle-item">
+                            <div class="principle-icon">⚡</div>
+                            <h5>Constant-Time Validation</h5>
+                            <p>Timing attack mitigation on digest comparison prevents side-channel information leaks.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: ENCRYPT -->
+            <section id="tab-encrypt" class="tab-view">
+                <div class="view-header">
+                    <h2>🔐 Encrypt File</h2>
+                    <p>Select any file to encrypt with AES-256-GCM. The encrypted package (.sfe) includes authenticated metadata.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <!-- Left: Upload & Config -->
+                    <div class="panel-card">
+                        <form id="encrypt-form">
+                            <!-- Dropzone -->
+                            <div class="dropzone" id="encrypt-dropzone">
+                                <input type="file" id="encrypt-file-input" class="file-input" required>
+                                <div class="dropzone-content">
+                                    <div class="dropzone-icon">📁</div>
+                                    <h4>Drag & Drop File Here</h4>
+                                    <p>or <span class="browse-link">browse from your computer</span></p>
+                                    <span class="file-limit-tag">Max file size: 50 MB</span>
+                                </div>
+                            </div>
+
+                            <!-- File Details Info Box -->
+                            <div id="encrypt-file-details" class="file-details-card hidden">
+                                <div class="file-meta-row">
+                                    <span class="meta-label">Selected File:</span>
+                                    <span id="enc-detail-name" class="meta-value font-mono">None</span>
+                                </div>
+                                <div class="file-meta-row">
+                                    <span class="meta-label">File Size:</span>
+                                    <span id="enc-detail-size" class="meta-value">0 KB</span>
+                                </div>
+                                <div class="file-meta-row">
+                                    <span class="meta-label">MIME Type:</span>
+                                    <span id="enc-detail-type" class="meta-value">application/octet-stream</span>
+                                </div>
+                            </div>
+
+                            <!-- Password Fields -->
+                            <div class="form-group mt-4">
+                                <label for="encrypt-password">Encryption Password <span class="required">*</span></label>
+                                <div class="input-with-toggle">
+                                    <input type="password" id="encrypt-password" placeholder="Enter a strong passphrase" required>
+                                    <button type="button" class="btn-toggle-pw" onclick="togglePasswordVisibility('encrypt-password', this)">👁️</button>
+                                </div>
+                                <!-- Password Strength Indicator -->
+                                <div class="strength-meter-wrap mt-2">
+                                    <div class="strength-bar-bg">
+                                        <div id="encrypt-strength-bar" class="strength-bar"></div>
+                                    </div>
+                                    <div class="strength-text-row">
+                                        <span>Password Strength:</span>
+                                        <strong id="encrypt-strength-text" class="strength-label">Too Weak</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="encrypt-confirm-password">Confirm Password <span class="required">*</span></label>
+                                <div class="input-with-toggle">
+                                    <input type="password" id="encrypt-confirm-password" placeholder="Re-enter password" required>
+                                    <button type="button" class="btn-toggle-pw" onclick="togglePasswordVisibility('encrypt-confirm-password', this)">👁️</button>
+                                </div>
+                                <div id="encrypt-match-feedback" class="feedback-hint"></div>
+                            </div>
+
+                            <button type="submit" id="btn-encrypt-submit" class="btn btn-primary btn-block btn-lg mt-4">
+                                <span class="btn-text">🔐 Encrypt File</span>
+                                <span class="spinner hidden"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Encryption Result & Security Report -->
+                    <div class="panel-card" id="encrypt-result-panel">
+                        <div id="encrypt-placeholder" class="result-placeholder">
+                            <div class="placeholder-icon">🛡️</div>
+                            <h4>No Active Encryption</h4>
+                            <p>Upload a file and specify a password to generate an AES-256-GCM container.</p>
+                        </div>
+
+                        <div id="encrypt-result-content" class="result-box hidden">
+                            <div class="status-banner success">
+                                <span class="status-icon">✓</span>
+                                <div>
+                                    <h4>Encryption Successful</h4>
+                                    <p>File protected and packaged with tamper-resistant authentication data.</p>
+                                </div>
+                            </div>
+
+                            <!-- Security Report Card -->
+                            <div class="security-report-card">
+                                <div class="report-header">
+                                    <span class="report-title">SECURITY REPORT</span>
+                                    <span class="report-badge">CONFIDENTIAL</span>
+                                </div>
+                                <div class="report-body">
+                                    <div class="report-row">
+                                        <span class="lbl">File:</span>
+                                        <span class="val font-mono" id="rep-enc-file">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Original Size:</span>
+                                        <span class="val" id="rep-enc-size">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Encrypted Size:</span>
+                                        <span class="val" id="rep-enc-encsize">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Encryption:</span>
+                                        <span class="val highlight">AES-256-GCM</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Key Derivation:</span>
+                                        <span class="val highlight">PBKDF2-HMAC-SHA256 (100,000 rds)</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Authentication:</span>
+                                        <span class="val text-success">GCM Authenticated (128-bit Tag)</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Status:</span>
+                                        <span class="val text-success">Success</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hash Display Box -->
+                            <div class="hash-result-box mt-4">
+                                <label>Original File SHA-256 Hash:</label>
+                                <div class="hash-code-wrap">
+                                    <code id="enc-result-hash" class="font-mono text-break">--</code>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="copyText('enc-result-hash', this)">
+                                        📋 Copy Hash
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Download Action -->
+                            <div class="download-box mt-4">
+                                <button type="button" id="btn-download-encrypted" class="btn btn-success btn-block btn-lg">
+                                    ⬇️ Download Encrypted File (.sfe)
+                                </button>
+                                <p class="download-tip">Save this file safely. You will need your exact password to decrypt it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: DECRYPT -->
+            <section id="tab-decrypt" class="tab-view">
+                <div class="view-header">
+                    <h2>🔓 Decrypt File</h2>
+                    <p>Upload your <code>.sfe</code> encrypted file and enter the password used during encryption.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <!-- Left: Decrypt Upload & Password -->
+                    <div class="panel-card">
+                        <form id="decrypt-form">
+                            <div class="dropzone" id="decrypt-dropzone">
+                                <input type="file" id="decrypt-file-input" class="file-input" accept=".sfe,*/*" required>
+                                <div class="dropzone-content">
+                                    <div class="dropzone-icon">📦</div>
+                                    <h4>Drag & Drop Encrypted (.sfe) File</h4>
+                                    <p>or <span class="browse-link">browse file</span></p>
+                                    <span class="file-limit-tag">Accepts .sfe container packages</span>
+                                </div>
+                            </div>
+
+                            <div id="decrypt-file-details" class="file-details-card hidden">
+                                <div class="file-meta-row">
+                                    <span class="meta-label">Selected Container:</span>
+                                    <span id="dec-detail-name" class="meta-value font-mono">None</span>
+                                </div>
+                                <div class="file-meta-row">
+                                    <span class="meta-label">Package Size:</span>
+                                    <span id="dec-detail-size" class="meta-value">0 KB</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="decrypt-password">Decryption Password <span class="required">*</span></label>
+                                <div class="input-with-toggle">
+                                    <input type="password" id="decrypt-password" placeholder="Enter original password" required>
+                                    <button type="button" class="btn-toggle-pw" onclick="togglePasswordVisibility('decrypt-password', this)">👁️</button>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btn-decrypt-submit" class="btn btn-secondary btn-block btn-lg mt-4">
+                                <span class="btn-text">🔓 Decrypt & Verify</span>
+                                <span class="spinner hidden"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right: Decrypt Result & Security Report -->
+                    <div class="panel-card" id="decrypt-result-panel">
+                        <div id="decrypt-placeholder" class="result-placeholder">
+                            <div class="placeholder-icon">🔍</div>
+                            <h4>Awaiting Encrypted Package</h4>
+                            <p>Upload an .sfe package to verify authenticity and recover your plaintext file.</p>
+                        </div>
+
+                        <!-- Success Box -->
+                        <div id="decrypt-result-content" class="result-box hidden">
+                            <div class="status-banner success">
+                                <span class="status-icon">✓</span>
+                                <div>
+                                    <h4>Decryption Successful</h4>
+                                    <p>Ciphertext authenticity verified and original file restored.</p>
+                                </div>
+                            </div>
+
+                            <!-- Security Report -->
+                            <div class="security-report-card">
+                                <div class="report-header">
+                                    <span class="report-title">SECURITY REPORT</span>
+                                    <span class="report-badge success">VERIFIED</span>
+                                </div>
+                                <div class="report-body">
+                                    <div class="report-row">
+                                        <span class="lbl">Recovered File:</span>
+                                        <span class="val font-mono" id="rep-dec-file">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">File Size:</span>
+                                        <span class="val" id="rep-dec-size">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Decryption:</span>
+                                        <span class="val highlight">AES-256-GCM</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Key Derivation:</span>
+                                        <span class="val highlight">PBKDF2-HMAC-SHA256</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Authentication:</span>
+                                        <span class="val text-success">✓ Verified (Tag & AAD Match)</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Status:</span>
+                                        <span class="val text-success">Success</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hash-result-box mt-4">
+                                <label>Verified File SHA-256 Hash:</label>
+                                <div class="hash-code-wrap">
+                                    <code id="dec-result-hash" class="font-mono text-break">--</code>
+                                    <button type="button" class="btn btn-sm btn-outline" onclick="copyText('dec-result-hash', this)">
+                                        📋 Copy Hash
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="download-box mt-4">
+                                <button type="button" id="btn-download-decrypted" class="btn btn-primary btn-block btn-lg">
+                                    ⬇️ Download Original File (<span id="dec-btn-filename">file</span>)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Failure Box -->
+                        <div id="decrypt-error-content" class="result-box hidden">
+                            <div class="status-banner error">
+                                <span class="status-icon">✗</span>
+                                <div>
+                                    <h4>Decryption Failed</h4>
+                                    <p id="decrypt-error-msg">Decryption failed. The password may be incorrect or the encrypted file may have been modified.</p>
+                                </div>
+                            </div>
+                            <div class="error-explanation mt-4">
+                                <h5>Why did this happen?</h5>
+                                <ul>
+                                    <li><strong>Incorrect Password:</strong> AES-GCM tag validation failed because the derived key did not match.</li>
+                                    <li><strong>File Tampering:</strong> One or more bytes in the ciphertext, header, or authentication tag were modified.</li>
+                                    <li><strong>Corruption:</strong> The file was truncated or improperly transferred.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: VERIFY INTEGRITY & HASHING -->
+            <section id="tab-verify" class="tab-view">
+                <div class="view-header">
+                    <h2>🛡️ SHA-256 Hashing & Integrity Verification</h2>
+                    <p>Calculate SHA-256 cryptographic digests and perform constant-time integrity verification.</p>
+                </div>
+
+                <div class="two-column-layout">
+                    <!-- Tool 1: Calculate SHA-256 -->
+                    <div class="panel-card">
+                        <div class="tool-title-badge">
+                            <span class="tool-badge-icon">#</span> Tool 1: Calculate SHA-256 Hash
+                        </div>
+                        <p class="tool-desc">Upload any file to compute its 256-bit cryptographic digest.</p>
+                        
+                        <form id="hash-form">
+                            <div class="dropzone" id="hash-dropzone">
+                                <input type="file" id="hash-file-input" class="file-input" required>
+                                <div class="dropzone-content">
+                                    <div class="dropzone-icon">#️⃣</div>
+                                    <h4>Upload File for Hashing</h4>
+                                    <p>or <span class="browse-link">browse</span></p>
+                                </div>
+                            </div>
+
+                            <div id="hash-file-details" class="file-details-card hidden">
+                                <div class="file-meta-row">
+                                    <span class="meta-label">File:</span>
+                                    <span id="hash-detail-name" class="meta-value font-mono">-</span>
+                                </div>
+                                <div class="file-meta-row">
+                                    <span class="meta-label">Size:</span>
+                                    <span id="hash-detail-size" class="meta-value">-</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btn-hash-submit" class="btn btn-outline btn-block btn-lg mt-4">
+                                <span class="btn-text">Calculate SHA-256 Digest</span>
+                                <span class="spinner hidden"></span>
+                            </button>
+                        </form>
+
+                        <div id="hash-output-box" class="hash-result-box mt-4 hidden">
+                            <label>Computed SHA-256 Hash (64 Hex Characters):</label>
+                            <div class="hash-code-wrap">
+                                <code id="calc-hash-value" class="font-mono text-break">--</code>
+                                <button type="button" class="btn btn-sm btn-outline" onclick="copyText('calc-hash-value', this)">
+                                    📋 Copy Hash
+                                </button>
+                            </div>
+                            <div class="edu-note mt-2">
+                                💡 <em>SHA-256 produces a fixed-length hash used here to detect changes in file contents.</em>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: Verify Against Reference Hash -->
+                    <div class="panel-card">
+                        <div class="tool-title-badge">
+                            <span class="tool-badge-icon">⚖️</span> Tool 2: Compare & Verify Integrity
+                        </div>
+                        <p class="tool-desc">Compare the hash of a file against a reference hash to detect tampering.</p>
+
+                        <form id="verify-form">
+                            <div class="dropzone" id="verify-dropzone">
+                                <input type="file" id="verify-file-input" class="file-input" required>
+                                <div class="dropzone-content">
+                                    <div class="dropzone-icon">🔍</div>
+                                    <h4>Upload File to Verify</h4>
+                                    <p>or <span class="browse-link">browse</span></p>
+                                </div>
+                            </div>
+
+                            <div id="verify-file-details" class="file-details-card hidden">
+                                <div class="file-meta-row">
+                                    <span class="meta-label">File:</span>
+                                    <span id="verify-detail-name" class="meta-value font-mono">-</span>
+                                </div>
+                                <div class="file-meta-row">
+                                    <span class="meta-label">Size:</span>
+                                    <span id="verify-detail-size" class="meta-value">-</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-4">
+                                <label for="reference-hash-input">Reference SHA-256 Hash <span class="required">*</span></label>
+                                <input type="text" id="reference-hash-input" class="font-mono" placeholder="Paste 64-character hex hash here" required>
+                            </div>
+
+                            <button type="submit" id="btn-verify-submit" class="btn btn-primary btn-block btn-lg mt-4">
+                                <span class="btn-text">🛡️ Verify File Integrity</span>
+                                <span class="spinner hidden"></span>
+                            </button>
+                        </form>
+
+                        <!-- Verify Result Box -->
+                        <div id="verify-result-box" class="mt-4 hidden">
+                            <!-- Verified Banner -->
+                            <div id="verify-banner-success" class="status-banner success hidden">
+                                <span class="status-icon">✓</span>
+                                <div>
+                                    <h4>FILE INTEGRITY VERIFIED</h4>
+                                    <p>The file is 100% authentic and has not been altered.</p>
+                                </div>
+                            </div>
+
+                            <!-- Failed Banner -->
+                            <div id="verify-banner-error" class="status-banner error hidden">
+                                <span class="status-icon">✗</span>
+                                <div>
+                                    <h4>FILE INTEGRITY CHECK FAILED</h4>
+                                    <p>The file contents have been modified or corrupted.</p>
+                                </div>
+                            </div>
+
+                            <!-- Security Report for Integrity -->
+                            <div class="security-report-card mt-3">
+                                <div class="report-header">
+                                    <span class="report-title">INTEGRITY COMPARISON REPORT</span>
+                                </div>
+                                <div class="report-body">
+                                    <div class="report-row">
+                                        <span class="lbl">File:</span>
+                                        <span class="val font-mono" id="rep-ver-file">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Comparison:</span>
+                                        <span class="val">Constant-Time Digest Match</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Reference Hash:</span>
+                                        <span class="val font-mono text-break" id="rep-ver-ref">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Current Hash:</span>
+                                        <span class="val font-mono text-break" id="rep-ver-cur">-</span>
+                                    </div>
+                                    <div class="report-row">
+                                        <span class="lbl">Status:</span>
+                                        <span class="val" id="rep-ver-status">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: HOW IT WORKS -->
+            <section id="tab-how-it-works" class="tab-view">
+                <div class="view-header">
+                    <h2>💡 How It Works</h2>
+                    <p>Comprehensive educational guide to the cryptographic primitives powering this application.</p>
+                </div>
+
+                <div class="edu-sections-container">
+                    <!-- SECTION 1 -->
+                    <div class="edu-card">
+                        <div class="edu-badge">SECTION 1</div>
+                        <h3>AES-256-GCM (Advanced Encryption Standard - Galois/Counter Mode)</h3>
+                        <p class="edu-lead">
+                            AES encrypts the file so unauthorized people cannot read it. 
+                            GCM also provides authentication so modifications can be detected.
+                        </p>
+                        <div class="edu-content">
+                            <p>
+                                Standard symmetric ciphers (like AES in CBC or ECB mode) only provide confidentiality — they do not protect against bit-flipping or tampering.
+                                <strong>AES-GCM is an Authenticated Encryption with Associated Data (AEAD)</strong> cipher. It combines counter-mode encryption with a universal Galois hash (GHASH) to produce a 128-bit authentication tag.
+                            </p>
+                            <div class="diagram-box">
+                                <code>
+Plaintext Bytes + AAD (Container Header) + Nonce (96-bit) + 256-bit Key
+  ↓
+AES-GCM Engine
+  ↓
+Ciphertext + 128-bit Authentication Tag (Tamper-Proof)
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2 -->
+                    <div class="edu-card">
+                        <div class="edu-badge">SECTION 2</div>
+                        <h3>SHA-256 (Secure Hash Algorithm 256-bit)</h3>
+                        <p class="edu-lead">
+                            A file is converted into a unique-looking fixed-length hash. 
+                            Even a small file modification normally produces a completely different hash.
+                        </p>
+                        <div class="edu-content">
+                            <p>
+                                SHA-256 maps arbitrary-length input into a 256-bit (64 hexadecimal characters) output digest.
+                                It exhibits the <strong>Avalanche Effect</strong>: changing even a single bit in a 10 GB file will flip approximately 50% of the output bits, making deliberate modifications or accidental corruption immediately visible.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3 -->
+                    <div class="edu-card">
+                        <div class="edu-badge">SECTION 3</div>
+                        <h3>PBKDF2 (Password-Based Key Derivation Function 2)</h3>
+                        <p class="edu-lead">
+                            PBKDF2 converts a human password into a cryptographic key using a salt and repeated hashing.
+                        </p>
+                        <div class="edu-content">
+                            <p>
+                                Humans choose memorable passphrases with low entropy. Directly hashing a password does not yield a secure 256-bit key.
+                                <strong>PBKDF2-HMAC-SHA256</strong> applies a pseudo-random function over <strong>100,000 iterations</strong> along with a salt. This deliberate computational cost slows down offline dictionary and GPU brute-force attacks by several orders of magnitude.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4 -->
+                    <div class="edu-card">
+                        <div class="edu-badge">SECTION 4</div>
+                        <h3>Cryptographic Salt</h3>
+                        <p class="edu-lead">
+                            A random salt makes password-derived keys different even when the same password is used.
+                        </p>
+                        <div class="edu-content">
+                            <p>
+                                A 16-byte random salt generated via CSPRNG (Cryptographically Secure Pseudo-Random Number Generator) is prepended before key derivation.
+                                This ensures two users with identical passwords will generate completely distinct AES keys, defeating precomputed <strong>Rainbow Table</strong> attacks. The salt is stored openly in the container header because salts are not secret.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 5 -->
+                    <div class="edu-card">
+                        <div class="edu-badge">SECTION 5</div>
+                        <h3>Nonce (Number Used Once)</h3>
+                        <p class="edu-lead">
+                            AES-GCM requires a fresh nonce for each encryption operation.
+                        </p>
+                        <div class="edu-content">
+                            <p>
+                                In Galois/Counter Mode, nonces must <em>never</em> be repeated with the same key. Nonce reuse with AES-GCM can catastrophically leak the authentication key and plaintext XOR streams.
+                                This tool generates a fresh, random 96-bit (12-byte) nonce for every single encryption request.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: ABOUT -->
+            <section id="tab-about" class="tab-view">
+                <div class="view-header">
+                    <h2>ℹ️ About Project</h2>
+                    <p>Network Security & Cryptography Academic Implementation.</p>
+                </div>
+
+                <div class="card-section">
+                    <h3>Project Specification</h3>
+                    <table class="spec-table mt-4">
+                        <tr>
+                            <td><strong>Project Title:</strong></td>
+                            <td>Secure File Integrity & Encryption Tool</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Course / Subject:</strong></td>
+                            <td>Network Security and Cryptography (NSC)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Symmetric Cipher:</strong></td>
+                            <td>AES-256-GCM (NIST SP 800-38D)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Derivation:</strong></td>
+                            <td>PBKDF2-HMAC-SHA256 (RFC 8018, 100,000 iterations)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hashing Algorithm:</strong></td>
+                            <td>SHA-256 (FIPS PUB 180-4)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>File Container Format:</strong></td>
+                            <td><code>.sfe</code> (Secure File Encrypted Container v1)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Architecture:</strong></td>
+                            <td>Zero-Database, In-Memory Cryptographic Processing</td>
+                        </tr>
+                    </table>
+
+                    <div class="mt-8">
+                        <h4>Viva Quick Guide</h4>
+                        <p>When presenting this project to your examiner:</p>
+                        <ul class="viva-points">
+                            <li><strong>Why AES-GCM instead of AES-CBC?</strong> GCM provides AEAD (Authenticated Encryption with Associated Data). It guarantees both privacy AND integrity, eliminating padding oracle vulnerabilities.</li>
+                            <li><strong>Why PBKDF2?</strong> Prevents brute force and dictionary attacks by stretching low-entropy passwords using a random salt and 100,000 rounds of HMAC-SHA256.</li>
+                            <li><strong>Where are passwords stored?</strong> Nowhere. The application is completely zero-knowledge and database-free.</li>
+                            <li><strong>How is tampering detected?</strong> If a single bit in the ciphertext or header changes, the GCM Galois hash tag calculation fails and throws an authentication error.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>Secure File Integrity & Encryption Tool • Network Security and Cryptography Academic Project</p>
+            <p class="footer-sub">Implemented with Python Flask & Python Cryptography • Zero-Storage Architecture</p>
+        </footer>
+    </div>
+
+    <script src="script.js?v=20260925_blob_fix"></script>
+</body>
+</html>

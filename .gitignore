@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+.env
+.venv
+env/
+venv/
+*.log
+.DS_Store
+Thumbs.db
+
+# Runtime output and upload directories
+output/*
+!output/.gitkeep
+uploads/*
+!uploads/.gitkeep
+
+# Test artifacts
+test_chrome_downloads/
+test_chrome_profile/
